@@ -1,0 +1,13 @@
+<h1>Bill</h1>
+
+<%= form_for bill, url:admin_bills_path do |f| %>
+  <%= render 'shared/error_messages', model:bill %>
+
+  <%= f.label :multiplier %>
+  <%= f.text_field :multiplier %>
+  <br>
+  <%= f.label :month %>
+  <%= f.date_field :month %>
+
+  <%= f.submit 'Create' %>
+<% end -%>
