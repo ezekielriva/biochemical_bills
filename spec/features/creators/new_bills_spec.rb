@@ -1,9 +1,16 @@
 require "spec_helper"
 
 feature "New Bill" do
+  given(:admin) { create(:admin) }
   given(:bill) { build(:bill) }
+
+  scenario "unautorized access" do
+    visit '/admin/bills/new'
+    expect(current_path).to eql new_admin_session_path
+  end
   
   scenario "with valid data" do
+    login_with(admin)
     visit '/admin/bills/new'
 
     fill_in 'bill[multiplier]', with:bill.multiplier
@@ -15,6 +22,7 @@ feature "New Bill" do
   end
 
   scenario "with invalid data" do
+    login_with(admin)
     visit '/admin/bills/new'
 
     find_button('Create').click

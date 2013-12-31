@@ -1,4 +1,4 @@
-class Admin::BillsController < ApplicationController
+class Admin::BillsController < AdminController
   
   expose(:bills)
   expose(:bill, attributes: :bill_params)

@@ -1,7 +1,11 @@
 Facturacion::Application.routes.draw do
-  root 'welcome#index'
+  root 'admin/dashboard#show'
 
+  devise_for :admins
+  
   namespace :admin do
+    get 'dashboard', to: 'dashboard#show'
     resources :bills
   end
+
 end
