@@ -1,1 +1,2 @@
 TOKEN: "some token"
+DEVISE_SECRET_KEY: "some key"
