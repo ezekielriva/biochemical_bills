@@ -1,0 +1,19 @@
+<%= form_for bio_practice, url:admin_bio_practices_path do |f| %>
+  <%= render 'shared/error_messages', model:bio_practice %>
+  <fieldset>
+    <%= f.label :id, 'Bio Practice no.' %>
+    <%= f.text_field :id %> <br>
+
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %> <br>
+    
+    <%= f.label :ub, 'UB' %>
+    <%= f.text_field :ub %> <br>
+
+  </fieldset>
+
+  <fieldset>
+    <%= f.submit 'Create' %>
+    <%= link_to 'Back' %>
+  </fieldset>
+<% end -%>

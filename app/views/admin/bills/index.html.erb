@@ -1,0 +1,18 @@
+<h1>Bills</h1>
+
+<%= link_to 'Create', new_admin_bill_path %>
+
+<table>
+  <tr>
+    <th>Month</th>
+    <th>Multiplier</th>
+    <th>Actions</th>
+  </tr>
+<% if bills %>
+  <% bills.each do |bill| %>
+    <td><%= bill.month %></td>
+    <td><%= bill.multiplier %></td>
+    <td><%= link_to 'Orders', admin_bill_orders_path(bill) %></td>
+  <% end -%>
+<% end -%>
+</table>

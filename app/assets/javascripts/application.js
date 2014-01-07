@@ -1,16 +1,30 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require handlebars-v1.3.0
+//= require_self
+
+var order_line = {
+  $el: $('#order_lines_fieldset'),
+  template: Handlebars.compile( $('#add_item_template').html() ),
+
+  addItem: function() {
+    var time = new Date();
+    var data = { timestamp: time.getTime() };
+    var html = this.template(data);
+
+    this.$el.append(html);
+  },
+
+  removeItem: function() {},
+
+  init: function() {
+    var that = this;
+    $('#add_item').on('click', function() {
+      that.addItem();
+    });
+  }
+}
+
+$(document).ready(function() {
+  order_line.init();
+});

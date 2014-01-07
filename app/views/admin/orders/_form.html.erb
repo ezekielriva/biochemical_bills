@@ -1,0 +1,27 @@
+<%= form_for order, url:admin_bill_orders_path do |f| %>
+  <%= render 'shared/error_messages', model:order %>
+
+  <fieldset>
+    <%= f.label :id, 'Order no.' %>
+    <%= f.text_field :id %> 
+    <br>
+    <%= f.label :patient_no, 'Patient no.' %>
+    <%= f.text_field :patient_no %>
+    <br>
+    <%= f.label :patient_name %>
+    <%= f.text_field :patient_name %>
+  </fieldset>
+
+  <fieldset id="order_lines_fieldset">
+    <%= f.fields_for :order_lines, order_lines do |fol| %>
+      <%= render 'order_line_form', f: fol %> <br>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <%= link_to 'Add item', '#', id: 'add_item' %>
+    <%= f.submit 'Create' %>
+  </fieldset>
+
+  <%= render 'order_line_template' %>
+<% end -%>

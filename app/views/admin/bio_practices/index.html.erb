@@ -1,0 +1,23 @@
+<h1>Bio Practices</h1>
+<%= link_to 'Create', new_admin_bio_practice_path %>
+<table>
+  <tr>
+    <th>Bio Pratice no.</th>
+    <th>Name</th>
+    <th>UB</th>
+    <th>Actions</th>
+  </tr>
+<% if bio_practices %>
+  <% bio_practices.each do |bio_practice| %>
+    <tr>
+      <td><%= bio_practice.id %></td>
+      <td><%= bio_practice.name %></td>
+      <td><%= bio_practice.ub %></td>
+      <td>
+        <%= link_to 'Edit',
+                    edit_admin_bio_practice_path(bio_practice) %>
+      </td>
+    </tr>
+  <% end -%>
+<% end -%>
+</table>
