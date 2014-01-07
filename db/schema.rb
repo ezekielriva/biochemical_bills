@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231184923) do
+ActiveRecord::Schema.define(version: 20140107135024) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,8 +40,24 @@ ActiveRecord::Schema.define(version: 20131231184923) do
 
   add_index "bills", ["month"], name: "index_bills_on_month", unique: true
 
+  create_table "bio_practices", force: true do |t|
+    t.string   "name"
+    t.float    "ub"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_lines", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "bio_practice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: true do |t|
     t.integer  "bill_id"
+    t.string   "patient_name"
+    t.integer  "patient_no"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

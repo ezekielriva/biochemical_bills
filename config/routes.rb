@@ -5,7 +5,10 @@ Facturacion::Application.routes.draw do
   
   namespace :admin do
     get 'dashboard', to: 'dashboard#show'
-    resources :bills
+    resources :bio_practices
+    resources :bills do
+      resources :orders
+    end
   end
 
 end

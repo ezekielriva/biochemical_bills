@@ -1,0 +1,20 @@
+<h1>Orders</h1>
+<%= link_to 'Create', new_admin_bill_order_path %>
+<table>
+  <tr>
+    <th>Order no.</th>
+    <th>Patient</th>
+    <th>Actions</th>
+  </tr>
+<% if orders %>
+  <% orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_bill_order_path(id:order.id) %>
+      </td>
+    </tr>
+  <% end -%>
+<% end -%>
+</table>
