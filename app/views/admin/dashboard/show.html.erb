@@ -1,0 +1,27 @@
+<header class="row">
+  <h1>Dashboard</h1>
+</header>
+
+<section class="row">
+  <aside class="medium-6 columns">
+    <h3>Lastest Bills</h3>
+    <table class="large-12">
+      <tr>
+        <th>Month</th>
+        <th>Multiplier</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <% bills.each do |bill| %>
+      <tr>
+        <td><%= bill.month.strftime('%B %Y') %></td>
+        <td><%= bill.multiplier %></td>
+        <td></td>
+        <td>
+          <%= link_to 'Show', admin_bill_path(bill) %>
+        </td>
+      </tr>
+      <% end -%>
+    </table>
+  </aside>
+</section>

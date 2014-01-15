@@ -1,19 +1,34 @@
-<%= form_for bio_practice, url:admin_bio_practices_path do |f| %>
+<header class="row">
+  <div class="large-12 columns"><h1>Bio Practice</h1></div>
+</header>
+
+<%= form_for bio_practice, url:(bio_practice.id)? admin_bio_practice_path(bio_practice) : admin_bio_practices_path do |f| %>
   <%= render 'shared/error_messages', model:bio_practice %>
-  <fieldset>
-    <%= f.label :id, 'Bio Practice no.' %>
-    <%= f.text_field :id %> <br>
 
-    <%= f.label :name, 'Name' %>
-    <%= f.text_field :name %> <br>
-    
-    <%= f.label :ub, 'UB' %>
-    <%= f.text_field :ub %> <br>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :id, 'Bio Practice no.' %>
+      <%= f.text_field :id %>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :ub, 'UB' %>
+      <%= f.text_field :ub %>
+    </div>
+  </div>
 
-  </fieldset>
-
-  <fieldset>
-    <%= f.submit 'Create' %>
-    <%= link_to 'Back' %>
-  </fieldset>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit (bio_practice.id)? 'Edit': 'Create', class:'button success' %>
+      <%= link_to 'Back', admin_bio_practices_path,
+                  class:'button secundary' %>
+    </div>
+  </div>
 <% end -%>

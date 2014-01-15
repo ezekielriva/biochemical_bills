@@ -1,13 +1,28 @@
-<h1>Bill</h1>
+<header class="row">
+  <div class="large-12 columns"><h1>Bill</h1></div>
+</header>
 
 <%= form_for bill, url:admin_bills_path do |f| %>
   <%= render 'shared/error_messages', model:bill %>
 
-  <%= f.label :multiplier %>
-  <%= f.text_field :multiplier %>
-  <br>
-  <%= f.label :month %>
-  <%= f.date_field :month %>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= f.label :multiplier %>
+      <%= f.text_field :multiplier %>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= f.label :month %>
+      <%= f.date_field :month %>
+    </div>
+  </div>
 
-  <%= f.submit 'Create' %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit 'Create', class:'button success' %>
+      <%= link_to 'Back',
+                  admin_bills_path, class:'button secundary' %>
+    </div>
+  </div>
 <% end -%>

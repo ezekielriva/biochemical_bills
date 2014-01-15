@@ -1,10 +1,15 @@
-<div class="row">
+<header class="row">
   <div class="large-12 columns">
-    <h1>Orders</h1>
-    <%= link_to 'Create',
-                new_admin_bill_order_path, class:'button right' %>
+    <h1><%= bill.month.strftime('%B %Y') %></h1>
   </div>
-</div>
+</header>
+
+<section class="row">
+  <div class="large-12 columns">
+    <h2>Orders</h2>
+  </div>
+</section>
+
 <div class="row">
   <div class="large-12 columns">
     <table class="large-12">
@@ -12,17 +17,15 @@
         <th>Order no.</th>
         <th>Patient no.</th>
         <th>Patient name</th>
-        <th>Actions</th>
+        <th>Subtotal</th>
       </tr>
-    <% if orders %>
-      <% orders.each do |order| %>
+    <% if bill.orders %>
+      <% bill.orders.each do |order| %>
         <tr>
           <td><%= order.id %></td>
           <td><%= order.patient_no %></td>
           <td><%= order.patient_name %></td>
-          <td>
-            <%= link_to 'Edit', edit_admin_bill_order_path(id:order.id) %>
-          </td>
+          <td><%= order.total %></td>
         </tr>
       <% end -%>
     <% end -%>

@@ -1,4 +1,12 @@
-<%= f.label :bio_practice %>
-<%= f.text_field :bio_practice_id %>
-<%= f.check_box :_destroy %>
-<%= f.label :_destroy, "Remove" %> <br>
+<div class="row">
+  <div class="small-3 columns">
+    <%= f.label :bio_practice, class:'right inline' %>
+  </div>
+  <div class="small-6 columns">
+    <%= f.text_field :bio_practice_id, class:'small-6', data: { module: "typeahead" }%>
+  </div>
+  <div class="small-3 columns">
+    <%= f.check_box :_destroy %>
+    <%= f.label :_destroy, "Remove" %> <br>
+  </div>
+</div>

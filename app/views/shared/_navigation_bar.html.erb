@@ -1,0 +1,25 @@
+<header>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Biochemical Invoice</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <% if current_admin %>
+      <ul class="left">
+        <li><%= link_to 'Bills', admin_bills_path %></li>
+        <li><%= link_to 'Bio Practices', admin_bio_practices_path %></li>
+      </ul>
+      <% end -%>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li><%= link_to "Sign out",
+                destroy_admin_session_path, method: :delete %></li>
+      </ul>
+    </section>
+  </nav>
+</header>

@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140107135024) do
     t.datetime "updated_at"
   end
 
+  add_index "order_lines", ["order_id", "bio_practice_id"], name: "index_order_lines_on_order_id_and_bio_practice_id", unique: true
+
   create_table "orders", force: true do |t|
     t.integer  "bill_id"
     t.string   "patient_name"

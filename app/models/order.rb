@@ -7,4 +7,12 @@ class Order < ActiveRecord::Base
     allow_destroy:true
 
   validates :bill, presence:true
+
+  def total
+    total = 0
+    order_lines.each do |item|
+      total += item.total
+    end
+    total * bill.multiplier
+  end
 end
