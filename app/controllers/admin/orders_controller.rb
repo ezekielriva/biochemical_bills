@@ -27,6 +27,14 @@ class Admin::OrdersController < AdminController
     end
   end
 
+  def destroy
+    order.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_bill_orders_path }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def order_params
       params.require(:order).permit(:id, :patient_no, :patient_name,

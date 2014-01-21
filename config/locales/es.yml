@@ -1,0 +1,53 @@
+es:
+  sign_in: 'Ingresar'
+  remember_me: 'Recordarme'
+  sign_in_btn: 'Ingresar'
+  sign_out: 'Salir'
+  biochemical_invoice: 'Facturación Bioquímica'
+  bills: 'facturaciones'
+  bill: 'facturación'
+  orders: 'ordenes'
+  order_no: 'orden no.'
+  patient_no: 'paciente no.'
+  patient: 'paciente'
+  patient_name: 'nombre del paciente'
+  bio_practices: 'prácticas bioquímicas'
+  bio_practice: 'práctica bioquímica'
+  add_bio_practice: 'Agregar práctica bioquímica'
+  lastest: "ultimas %{tar}"
+  month: 'mes'
+  multiplier: 'multiplicador'
+  show: 'mostrar'
+  create: 'crear'
+  edit: 'editar'
+  back: 'volver'
+  remove: 'Quitar'
+  error: 'error'
+  errors: 'errores'
+  prohibited_this_from_being_saved: 'prohibieron que este formulario guardara datos.'
+  delete: 'borrar'
+  print: 'imprimir'
+
+  date:
+    formats:
+      default: '%B %Y'
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    # Used in date_select and datime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            patient_no:
+              blank: 'no puede estar vacio.'
+            patient_name:
+              blank: 'no puede estar vacio.'

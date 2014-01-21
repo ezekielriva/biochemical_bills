@@ -28,6 +28,16 @@ var order_line = {
       that.addItem();
     });
   }
+};
+
+var print = {
+  $el: $('[data-module*=print]'),
+  init: function() {
+    this.$el.on('click', function(e) {
+      e.preventDefault();
+      window.print;
+    });
+  },
 }
 
 var typeahead_module = {
@@ -48,6 +58,7 @@ var typeahead_module = {
 $(document).ready(function() {
   order_line.init();
   typeahead_module.init();
+  print.init();
 });
 
 $(function(){ $(document).foundation(); });

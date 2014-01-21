@@ -1,5 +1,5 @@
 <header class="row">
-  <div class="large-12 columns"><h1>Bill</h1></div>
+  <div class="large-12 columns"><h1><%= t(:bill).humanize %></h1></div>
 </header>
 
 <%= form_for bill, url:admin_bills_path do |f| %>
@@ -7,22 +7,22 @@
 
   <div class="row">
     <div class="large-3 columns">
-      <%= f.label :multiplier %>
+      <%= f.label t(:multiplier) %>
       <%= f.text_field :multiplier %>
     </div> 
   </div>
   <div class="row">
     <div class="large-3 columns">
-      <%= f.label :month %>
-      <%= f.date_field :month %>
+      <%= f.label t(:month) %>
+      <%= f.date_field :month, placeholder: 'dd/mm/yyyy' %>
     </div>
   </div>
 
   <div class="row">
     <div class="large-12 columns">
-      <%= f.submit 'Create', class:'button success' %>
-      <%= link_to 'Back',
-                  admin_bills_path, class:'button secundary' %>
+      <%= f.submit t(:create).humanize, class:'button success' %>
+      <%= link_to t(:back).humanize,
+                  admin_bills_path, class:'button' %>
     </div>
   </div>
 <% end -%>

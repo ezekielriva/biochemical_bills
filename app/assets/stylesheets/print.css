@@ -1,0 +1,8 @@
+@media print {
+  table { border-collapse: collapse; }
+  th { border: 1px solid black; }
+  tr { border: 1px solid black; }
+  td { border: 1px solid black; vertical-align: top; }
+  .top-bar,
+  .button { visibility: none; display: none; }
+}

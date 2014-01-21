@@ -4,10 +4,10 @@
   <div class="row">
     <div class="large-12 columns">
       <fieldset>
-        <legend>Order data</legend>
+        <legend><%= t(:order_data) %></legend>
         <div class="row">
           <div class="small-2 columns">
-            <%= f.label :id, 'Order no.', class:'right inline' %>
+            <%= f.label :id, t(:order_no).humanize, class:'right inline' %>
           </div>
           <div class="small-10 columns">
             <%= f.text_field :id %>
@@ -15,7 +15,7 @@
         </div>
         <div class="row">
           <div class="small-2 columns">
-            <%= f.label :patient_no, 'Patient no.', class:'right inline' %>
+            <%= f.label t(:patient_no), class:'right inline' %>
           </div>
           <div class="small-10 columns">
             <%= f.text_field :patient_no %>
@@ -24,7 +24,7 @@
         
         <div class="row">
           <div class="small-2 columns">
-            <%= f.label :patient_name, class:'right inline' %>
+            <%= f.label t(:patient_name), class:'right inline' %>
           </div>
           <div class="small-10 columns">
             <%= f.text_field :patient_name %>
@@ -37,14 +37,14 @@
   <div class="row">
     <div class="large-12 columns">
       <fieldset id="order_lines_fieldset" >
-        <legend>Bio Practices</legend>
+        <legend><%= t(:bio_practices).humanize %></legend>
         <%= f.fields_for :order_lines, order_lines do |fol| %>
           <%= render 'order_line_form', f: fol %> <br>
         <% end %>
       </fieldset>
     </div>
     <div class="large-12 columns">
-      <%= link_to 'Add Bio Practice',
+      <%= link_to t(:add_bio_practice).humanize,
                   '#order_lines_fieldset',
                   id: 'add_item', class:'button' %>
     </div>
@@ -52,8 +52,8 @@
 
   <div class="row">
     <div class="large-12 columns">
-      <%= f.submit (order.id)? 'Edit' : 'Create', class:'button success' %>
-      <%= link_to 'Back', admin_bill_orders_path, class:'button' %>
+      <%= f.submit (order.id)? t(:edit).humanize : t(:create).humanize, class:'button success' %>
+      <%= link_to t(:back).humanize, admin_bill_orders_path, class:'button' %>
     </div>
   </div>
 

@@ -15,6 +15,12 @@ class Admin::BillsController < AdminController
     end
   end
 
+  def destroy
+    bill.destroy
+    flash[:success] = 'Bill was deleted successfully.'
+    redirect_to admin_bills_path
+  end
+
   private
     def bill_params
       params.require(:bill).permit(:multiplier, :month)

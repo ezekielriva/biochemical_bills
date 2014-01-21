@@ -1,12 +1,15 @@
 <header class="row">
   <div class="large-12 columns">
-    <h1><%= bill.month.strftime('%B %Y') %></h1>
+    <h1><%= l(bill.month) %></h1>
   </div>
 </header>
 
 <section class="row">
   <div class="large-12 columns">
-    <h2>Orders</h2>
+    <h2>
+      <%= t(:orders).humanize %>
+      <%= link_to t(:print).humanize, '#', class:'button right', data: { module:'print' } %>
+    </h2>
   </div>
 </section>
 
@@ -14,9 +17,10 @@
   <div class="large-12 columns">
     <table class="large-12">
       <tr>
-        <th>Order no.</th>
-        <th>Patient no.</th>
-        <th>Patient name</th>
+        <th><%= t(:order_no).humanize %></th>
+        <th><%= t(:patient_no).humanize %></th>
+        <th><%= t(:patient_name).humanize %></th>
+        <th><%= t(:bio_practices).humanize %></th>
         <th>Subtotal</th>
       </tr>
     <% if bill.orders %>
@@ -25,10 +29,19 @@
           <td><%= order.id %></td>
           <td><%= order.patient_no %></td>
           <td><%= order.patient_name %></td>
-          <td><%= order.total %></td>
+          <td>
+            <% order.order_lines.each do |item| %>
+              <%= item.bio_practice.name %> - <%= number_to_currency( item.bio_practice.ub * order.bill.multiplier ) %> <br>
+            <% end -%>
+          </td>
+          <td><%= number_to_currency(order.total) %></td>
         </tr>
       <% end -%>
     <% end -%>
+    <tr>
+      <th colspan="4">Total</th>
+      <th><%= number_to_currency bill.total %></th>
+    </tr>
     </table>    
   </div>
 </div>

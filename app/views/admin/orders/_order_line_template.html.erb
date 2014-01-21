@@ -1,7 +1,7 @@
 <script type="javascript/template" id="add_item_template">
   <div class="row">
     <div class="small-3 columns">
-      <label class="right inline" for="order_order_lines_attributes_{{timestamp}}_bio_practice">Bio practice</label>
+      <label class="right inline" for="order_order_lines_attributes_{{timestamp}}_bio_practice"><%= t(:bio_practice).humanize %></label>
     </div>
     <div class="small-6 columns">
       <input class="small-6" data-module="typeahead" id="order_order_lines_attributes_{{timestamp}}_bio_practice_id" name="order[order_lines_attributes][{{timestamp}}][bio_practice_id]" value="" type="text">
@@ -10,7 +10,7 @@
       <input name="order[order_lines_attributes][{{timestamp}}][_destroy]" value="{{timestamp}}" type="hidden">
       <input id="order_order_lines_attributes_{{timestamp}}__destroy" name="order[order_lines_attributes][{{timestamp}}][_destroy]" value="1" type="checkbox">
     
-      <label for="order_order_lines_attributes_{{timestamp}}__destroy">Remove</label>
+      <label for="order_order_lines_attributes_{{timestamp}}__destroy"><%= t(:remove) %></label>
       <input id="order_order_lines_attributes_{{timestamp}}_id" name="order[order_lines_attributes][{{timestamp}}][id]" value="" type="hidden">
     </div>
   </div>
