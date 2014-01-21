@@ -1,0 +1,27 @@
+<header class="row">
+  <h1>Dashboard</h1>
+</header>
+
+<section class="row">
+  <aside class="medium-6 columns">
+    <h3><%= t(:lastest, tar:t(:bills) ).humanize %></h3>
+    <table class="large-12">
+      <tr>
+        <th><%= t(:month).humanize %></th>
+        <th><%= t(:multiplier).humanize %></th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <% bills.each do |bill| %>
+      <tr>
+        <td><%= l(bill.month) %></td>
+        <td><%= bill.multiplier %></td>
+        <td><%= number_to_currency(bill.total) %></td>
+        <td>
+          <%= link_to t(:show).humanize, admin_bill_path(bill) %>
+        </td>
+      </tr>
+      <% end -%>
+    </table>
+  </aside>
+</section>

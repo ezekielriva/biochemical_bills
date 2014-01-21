@@ -5,6 +5,7 @@ class Admin::BillsController < AdminController
   
   def index; end
   def new; end
+  def show; end
 
   def create
     if bill.save
@@ -12,6 +13,12 @@ class Admin::BillsController < AdminController
     else
       render :new
     end
+  end
+
+  def destroy
+    bill.destroy
+    flash[:success] = 'Bill was deleted successfully.'
+    redirect_to admin_bills_path
   end
 
   private

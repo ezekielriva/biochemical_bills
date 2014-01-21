@@ -1,13 +1,28 @@
-<h1>Bill</h1>
+<header class="row">
+  <div class="large-12 columns"><h1><%= t(:bill).humanize %></h1></div>
+</header>
 
 <%= form_for bill, url:admin_bills_path do |f| %>
   <%= render 'shared/error_messages', model:bill %>
 
-  <%= f.label :multiplier %>
-  <%= f.text_field :multiplier %>
-  <br>
-  <%= f.label :month %>
-  <%= f.date_field :month %>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= f.label t(:multiplier) %>
+      <%= f.text_field :multiplier %>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= f.label t(:month) %>
+      <%= f.date_field :month, placeholder: 'dd/mm/yyyy' %>
+    </div>
+  </div>
 
-  <%= f.submit 'Create' %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.submit t(:create).humanize, class:'button success' %>
+      <%= link_to t(:back).humanize,
+                  admin_bills_path, class:'button' %>
+    </div>
+  </div>
 <% end -%>

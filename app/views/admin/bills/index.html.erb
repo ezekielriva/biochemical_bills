@@ -1,18 +1,33 @@
-<h1>Bills</h1>
+<header class="row">
+  <div class="large-12 columns">
+    <h1><%= t(:bills).humanize %></h1>
+    <%= link_to t(:create).humanize, new_admin_bill_path, class:'button' %>
+  </div>
+</header>
 
-<%= link_to 'Create', new_admin_bill_path %>
-
-<table>
-  <tr>
-    <th>Month</th>
-    <th>Multiplier</th>
-    <th>Actions</th>
-  </tr>
-<% if bills %>
-  <% bills.each do |bill| %>
-    <td><%= bill.month %></td>
-    <td><%= bill.multiplier %></td>
-    <td><%= link_to 'Orders', admin_bill_orders_path(bill) %></td>
-  <% end -%>
-<% end -%>
-</table>
+<section class="row">
+  <div class="large-12 columns">
+    <table class="large-12">
+      <tr>
+        <th><%= t(:month).humanize %></th>
+        <th><%= t(:multiplier).humanize %></th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    <% if bills %>
+      <% bills.each do |bill| %>
+      <tr>
+        <td><%= l(bill.month) %></td>
+        <td><%= bill.multiplier %></td>
+        <td><%= number_to_currency(bill.total) %></td>
+        <td>
+          <%= link_to t(:orders).humanize, admin_bill_orders_path(bill) %>
+          <%= link_to t(:show).humanize, admin_bill_path(bill) %>
+          <%= link_to t(:delete).humanize, admin_bill_path(bill), method: :delete %>
+        </td>
+      </tr>
+      <% end -%>
+    <% end -%>
+    </table>
+  </div>
+</section>

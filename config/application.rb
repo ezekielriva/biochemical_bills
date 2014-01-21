@@ -9,5 +9,7 @@ Bundler.require(:default, Rails.env)
 module Facturacion
   class Application < Rails::Application
     I18n.enforce_available_locales = false
+    I18n.default_locale = :es
+    I18n.locale = :es
   end
 end

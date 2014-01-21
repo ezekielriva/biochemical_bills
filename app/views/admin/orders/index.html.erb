@@ -1,20 +1,41 @@
-<h1>Orders</h1>
-<%= link_to 'Create', new_admin_bill_order_path %>
-<table>
-  <tr>
-    <th>Order no.</th>
-    <th>Patient</th>
-    <th>Actions</th>
-  </tr>
-<% if orders %>
-  <% orders.each do |order| %>
-    <tr>
-      <td><%= order.id %></td>
-      <td></td>
-      <td>
-        <%= link_to 'Edit', edit_admin_bill_order_path(id:order.id) %>
-      </td>
-    </tr>
-  <% end -%>
-<% end -%>
-</table>
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= t(:orders).humanize %></h1>
+    <%= link_to t(:create).humanize,
+                new_admin_bill_order_path, class:'button right' %>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <table class="large-12">
+      <tr>
+        <th><%= t(:order_no).humanize %></th>
+        <th><%= t(:patient_no).humanize %></th>
+        <th><%= t(:patient).humanize %></th>
+        <th><%= t(:bio_practices).humanize %></th>
+        <th></th>
+      </tr>
+    <% if orders %>
+      <% orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.patient_no %></td>
+          <td><%= order.patient_name %></td>
+          <td>
+            <% order.order_lines.each do |item| %>
+              <%= item.bio_practice.name %> <br>
+            <% end -%>
+          </td>
+          <td>
+            <%= link_to t(:edit).humanize, edit_admin_bill_order_path(id:order.id) %>
+            <%= link_to t(:delete).humanize,
+              admin_bill_order_path(id:order.id),
+              method: :delete
+              %>
+          </td>
+        </tr>
+      <% end -%>
+    <% end -%>
+    </table>    
+  </div>
+</div>

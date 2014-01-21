@@ -18,10 +18,27 @@ class Admin::OrdersController < AdminController
     end
   end
 
+  def update
+    if order.save
+      redirect_to admin_bill_orders_path,
+                  success:'The Order was updated successfully'
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    order.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_bill_orders_path }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def order_params
       params.require(:order).permit(:id, :patient_no, :patient_name,
-        order_lines_attributes:[:quantity, :bio_practice_id, :_destroy])
+        order_lines_attributes:[:id, :quantity, :bio_practice_id, :_destroy])
     end
 
 end

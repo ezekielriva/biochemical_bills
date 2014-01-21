@@ -5,5 +5,7 @@ class CreateOrderLines < ActiveRecord::Migration
       t.belongs_to :bio_practice
       t.timestamps
     end
+
+    add_index :order_lines, [:order_id, :bio_practice_id], unique:true
   end
 end

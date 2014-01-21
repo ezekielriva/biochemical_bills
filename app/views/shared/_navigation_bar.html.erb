@@ -1,0 +1,25 @@
+<header>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#"><%= t :biochemical_invoice %></a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <% if current_admin %>
+      <ul class="left">
+        <li><%= link_to t(:bills).humanize, admin_bills_path %></li>
+        <li><%= link_to t(:bio_practices).humanize, admin_bio_practices_path %></li>
+      </ul>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li><%= link_to t(:sign_out),
+                destroy_admin_session_path, method: :delete %></li>
+      </ul>
+      <% end -%>
+    </section>
+  </nav>
+</header>

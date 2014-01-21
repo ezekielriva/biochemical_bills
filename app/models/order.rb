@@ -6,5 +6,13 @@ class Order < ActiveRecord::Base
     reject_if:lambda {|attr| attr['bio_practice_id'].blank?},
     allow_destroy:true
 
-  validates :bill, presence:true
+  validates :bill, :patient_no, :patient_name, presence:true
+
+  def total
+    total = 0
+    order_lines.each do |item|
+      total += item.total
+    end
+    total * bill.multiplier
+  end
 end
