@@ -27,6 +27,8 @@ es:
   prohibited_this_from_being_saved: 'prohibieron que este formulario guardara datos.'
   delete: 'borrar'
   print: 'imprimir'
+  name: 'nombre'
+  practice_no: 'practica bioquímica no.'
 
   date:
     formats:

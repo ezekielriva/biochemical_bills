@@ -1,5 +1,5 @@
 <header class="row">
-  <div class="large-12 columns"><h1>Bio Practice</h1></div>
+  <div class="large-12 columns"><h1><%= t(:bio_practice).titleize %></h1></div>
 </header>
 
 <%= form_for bio_practice, url:(bio_practice.id)? admin_bio_practice_path(bio_practice) : admin_bio_practices_path do |f| %>
@@ -7,13 +7,13 @@
 
   <div class="row">
     <div class="large-4 columns">
-      <%= f.label :id, 'Bio Practice no.' %>
+      <%= f.label :id, t(:practice_no).humanize %>
       <%= f.text_field :id %>
     </div> 
   </div>
   <div class="row">
     <div class="large-4 columns">
-      <%= f.label :name %>
+      <%= f.label t(:name) %>
       <%= f.text_field :name %>
     </div>
   </div>
@@ -26,8 +26,8 @@
 
   <div class="row">
     <div class="large-12 columns">
-      <%= f.submit (bio_practice.id)? 'Edit': 'Create', class:'button success' %>
-      <%= link_to 'Back', admin_bio_practices_path,
+      <%= f.submit (bio_practice.id)? t(:edit).humanize: t(:create).titleize, class:'button success' %>
+      <%= link_to t(:back).titleize, admin_bio_practices_path,
                   class:'button secundary' %>
     </div>
   </div>

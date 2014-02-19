@@ -1,7 +1,7 @@
 <header class="row">
   <div class="large-12 columns">
-    <h1>Bio Practices</h1>
-    <%= link_to 'Create', new_admin_bio_practice_path, class:'button' %>
+    <h1><%= t(:bio_practices).titleize %></h1>
+    <%= link_to t(:create).titleize, new_admin_bio_practice_path, class:'button' %>
   </div>
 </header>
 
@@ -9,8 +9,8 @@
   <div class="large-12 columns">
     <table class="large-12">
       <tr>
-        <th>Bio Pratice no.</th>
-        <th>Name</th>
+        <th><%= t(:practice_no).humanize %></th>
+        <th><%= t(:name).titleize %></th>
         <th>UB</th>
         <th></th>
       </tr>
@@ -21,15 +21,8 @@
           <td><%= bio_practice.name %></td>
           <td><%= bio_practice.ub %></td>
           <td>
-            <%= link_to edit_admin_bio_practice_path(bio_practice),
-                        class:'button tiny split' do %>
-              Edit <span data-dropdown="drop"></span>
-            <% end -%>
-            <br>
-            <ul id="drop" class="f-dropdown" data-dropdown-content>
-              <li><%= link_to 'Delete', admin_bio_practice_path(bio_practice), method: :delete %>
-              </li>
-            </ul>
+            <%= link_to t(:edit),edit_admin_bio_practice_path(bio_practice) %>
+            <%= link_to t(:delete), admin_bio_practice_path(bio_practice), method: :delete %>
           </td>
         </tr>
       <% end -%>

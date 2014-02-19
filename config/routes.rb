@@ -5,8 +5,8 @@ Facturacion::Application.routes.draw do
   
   namespace :admin do
     get 'dashboard', to: 'dashboard#show'
-    resources :bio_practices
-    resources :bills do
+    resources :bio_practices, path: 'practicas_bioquimicas'
+    resources :bills, path: 'facturacion' do
       resources :orders
     end
   end
