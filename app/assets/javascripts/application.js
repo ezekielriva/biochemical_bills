@@ -30,12 +30,12 @@ var order_line = {
   }
 };
 
-var print = {
+var print_page = {
   $el: $('[data-module*=print]'),
   init: function() {
     this.$el.on('click', function(e) {
       e.preventDefault();
-      window.print;
+      window.print();
     });
   },
 }
@@ -58,7 +58,7 @@ var typeahead_module = {
 $(document).ready(function() {
   order_line.init();
   typeahead_module.init();
-  print.init();
+  print_page.init();
 });
 
 $(function(){ $(document).foundation(); });
