@@ -47,7 +47,7 @@ var typeahead_module = {
     this.$typeahead.typeahead({
       name:'bioPractices',
       valueKey: 'id',
-      remote: '/admin/bio_practices?query=%QUERY',
+      remote: this.$typeahead.data('url') + '?query=%QUERY',
       template: ['<p>Codigo: {{id}} <br/>',
                  '{{name}} - ub: {{ub}}</p>'].join(''),
       engine: Hogan
